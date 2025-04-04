@@ -1,4 +1,6 @@
 body {
+  overflow: hidden;
+  height: 100%;
   font-family: "Arial", sans-serif;
   background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
   margin: 0;
@@ -10,9 +12,10 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  height: 100vh;
+  height: calc(100vh - 40px);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 h1 {
@@ -84,6 +87,25 @@ h1 {
 .sorting label {
   font-size: 14px;
   color: #555;
+}
+
+.status-filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 15px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 #notes-list {
@@ -221,6 +243,12 @@ textarea {
   box-sizing: border-box;
 }
 
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
 .save-button {
   background: #4caf50;
   color: white;
@@ -233,6 +261,20 @@ textarea {
 
 .save-button:hover {
   background: #45a049;
+}
+
+.cancel-button {
+  background: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-button:hover {
+  background: #d32f2f;
 }
 
 .confirm-buttons {

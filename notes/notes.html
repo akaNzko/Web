@@ -8,34 +8,57 @@
   </head>
   <body>
     <div class="container">
-      <h1>Заметки</h1>
+      <h1>Мои Заметки</h1>
       <div class="controls">
-        <button id="add-note" class="add-button">Добавить заметку</button>
+        <button id="add-note" class="add-button">+ Добавить заметку</button>
         <input type="text" id="search" placeholder="Поиск заметок..." />
+
         <div class="filters">
-          <label for="filter-importance">Фильтр по важности:</label>
+          <label>Фильтр по важности:</label>
           <select id="filter-importance">
             <option value="all">Все важности</option>
             <option value="high">Высокая важность</option>
             <option value="medium">Средняя важность</option>
             <option value="low">Низкая важность</option>
           </select>
-          <label for="filter-status">Фильтр по статусу:</label>
-          <select id="filter-status">
-            <option value="all">Все статусы</option>
-            <option value="active">Активные</option>
-            <option value="completed">Завершённые</option>
-            <option value="cancelled">Отменённые</option>
-          </select>
+
+          <div class="status-filters">
+            <label>Фильтр по статусу:</label>
+            <div class="checkbox-group">
+              <label
+                ><input type="checkbox" name="status" value="active" checked />
+                Активные</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="status"
+                  value="completed"
+                  checked
+                />
+                Завершённые</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="status"
+                  value="cancelled"
+                  checked
+                />
+                Отменённые</label
+              >
+            </div>
+          </div>
         </div>
+
         <div class="sorting">
-          <label for="sort-by">Сортировать по:</label>
+          <label>Сортировать по:</label>
           <select id="sort-by">
             <option value="importance">Важности</option>
             <option value="time">Времени создания</option>
             <option value="status">Статусу</option>
           </select>
-          <label for="sort-direction">Направление:</label>
+          <label>Направление:</label>
           <select id="sort-direction">
             <option value="asc">По возрастанию</option>
             <option value="desc">По убыванию</option>
@@ -45,6 +68,7 @@
       <div id="notes-list" class="notes-list"></div>
     </div>
 
+    <!-- Модальное окно -->
     <div id="note-modal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
@@ -63,16 +87,20 @@
           <option value="completed">Завершённая</option>
           <option value="cancelled">Отменённая</option>
         </select>
-        <button id="save-note" class="save-button">Сохранить</button>
+        <div class="modal-buttons">
+          <button id="cancel-note" class="cancel-button">Отмена</button>
+          <button id="save-note" class="save-button">Сохранить</button>
+        </div>
       </div>
     </div>
 
+    <!-- Окно подтверждения удаления -->
     <div id="confirm-modal" class="modal">
       <div class="modal-content">
         <p>Вы уверены, что хотите удалить эту заметку?</p>
         <div class="confirm-buttons">
-          <button id="confirm-yes" class="confirm-button yes">Да</button>
           <button id="confirm-no" class="confirm-button no">Нет</button>
+          <button id="confirm-yes" class="confirm-button yes">Да</button>
         </div>
       </div>
     </div>
